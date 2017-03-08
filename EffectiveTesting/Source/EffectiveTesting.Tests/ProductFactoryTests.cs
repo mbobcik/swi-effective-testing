@@ -7,11 +7,12 @@ namespace EffectiveTesting.Tests
     public class ProductFactoryTests
     {
         // Fix the test to:
-        // TODO: catch errors related to Name change (Write custom assert method).
         // TODO: have self descriptive name.
-        // TODO: avoid DateTime.UtcNow, to be able reproduce the test with the same data.
         // TODO: be able understand why it fails.
-        
+        // TODO: catch errors related to Name change (Write custom assert method).
+        // TODO: avoid DateTime.UtcNow, to be able reproduce the test with the same data.
+        // TODO: add missing tests.
+
         // Fix the production code to:    
         // TODO: be able write unit tests (Unit == Class).
         [Test]
