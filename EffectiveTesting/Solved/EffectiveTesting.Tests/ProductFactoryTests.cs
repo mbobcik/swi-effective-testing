@@ -15,7 +15,7 @@ namespace EffectiveTesting.Tests
         // Fix the production code to:    
         // TODO: be able write unit tests (Unit == Class).
         [Test]
-        public void TestCreate()
+        public void Create_FillsAllProperties()
         {
             var factory = new ProductsFactory();
             Product created = factory.Create("ExpectedName");
