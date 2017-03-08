@@ -4,14 +4,18 @@ namespace EffectiveTesting
 {
     public class Product
     {
+        public int Id { get; private set; }
+
         public string Name { get; private set; }
 
         public DateTime Created { get; private set; }
 
-        public Product(DateTime created, string name)
+
+        public Product(DateTime created, int id, string name)
         {
-            Created = created;
-            Name = name;
+            // Id = id
+            // Created = created;
+            // Name = name;
         }
     }
 }

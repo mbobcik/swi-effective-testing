@@ -6,7 +6,8 @@ namespace EffectiveTesting
     {
         public Product Create(string name)
         {
-            return new Product(DateTime.Now, name);
+            int newId = IdGenerator.NextId();
+            return new Product(DateTime.UtcNow, newId, name);
         }
     }
 }
