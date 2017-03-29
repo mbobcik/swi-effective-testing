@@ -22,18 +22,18 @@ namespace EffectiveTesting.Tests
         // TODO 5: Write missing tests for the other "Set" property value.
         // Modify the code to see how the tests are executed, do the same with production code.
         // Show how to find tests covering 'return "A";' statement in Factory class.
+        [TestCase(100, "A", "ExpectedName")]
+        [TestCase(99, "B", "ExpectedName")]
         [Test]
-        public void Create_FillsAllProperties()
+        public void Create_FillsAllProperties(int expectedId, string expectedSet, string expectedName)
         {
-            const int expectedId = 100;
-            const string expectedName = "ExpectedName";
             var idGenerator = new Mock<IIdGenerator>();
             idGenerator.Setup(g => g.NextId()).Returns(expectedId);
 
             var factory = new ProductsFactory(idGenerator.Object);
 
             Product created = factory.Create(expectedName);
-            AssertProductIsSetTo(created, expectedName, "A", expectedId);
+            AssertProductIsSetTo(created, expectedName, expectedSet, expectedId);
         }
 
         private void AssertProductIsSetTo(Product current, string expectedName, string expectedSet, int expectedId)
