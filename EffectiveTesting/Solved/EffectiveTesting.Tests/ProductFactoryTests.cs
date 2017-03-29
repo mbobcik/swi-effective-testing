@@ -25,12 +25,15 @@ namespace EffectiveTesting.Tests
         [Test]
         public void Create_FillsAllProperties()
         {
-            var idGenerator = new Mock<IIdGenerator>();
-            idGenerator.Setup(g => g.NextId()).Returns(100);
-            var factory = new ProductsFactory(idGenerator.Object);
+            const int expectedId = 100;
             const string expectedName = "ExpectedName";
+            var idGenerator = new Mock<IIdGenerator>();
+            idGenerator.Setup(g => g.NextId()).Returns(expectedId);
+
+            var factory = new ProductsFactory(idGenerator.Object);
+
             Product created = factory.Create(expectedName);
-            AssertProductIsSetTo(created, expectedName, "A", 100);
+            AssertProductIsSetTo(created, expectedName, "A", expectedId);
         }
 
         private void AssertProductIsSetTo(Product current, string expectedName, string expectedSet, int expectedId)
