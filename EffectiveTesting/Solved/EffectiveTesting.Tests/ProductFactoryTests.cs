@@ -20,25 +20,25 @@ namespace EffectiveTesting.Tests
             var factory = new ProductsFactory();
             const string expectedName = "ExpectedName";
             Product created = factory.Create(expectedName);
-            AssertProductIsSetTo(created, expectedName, 1, DateTime.UtcNow.AddSeconds(-1));
+            AssertProductIsSetTo(created, expectedName, "B", DateTime.UtcNow.AddSeconds(-1));
         }
 
-        private void AssertProductIsSetTo(Product current, string expectedName, int expectedId, DateTime expectedDateCreated)
+        private void AssertProductIsSetTo(Product current, string expectedName, string expectedSet, DateTime expectedDateCreated)
         {
-            WriteExpectationsToConsole(current, expectedName, expectedId, expectedDateCreated);
+            WriteExpectationsToConsole(current, expectedName, expectedSet, expectedDateCreated);
 
             bool allEquals = current.Name == expectedName &&
-                current.Id == expectedId &&
+                current.Set == expectedSet &&
                 expectedDateCreated < current.Created;
 
             Assert.IsTrue(allEquals, "Product doesnt match expected initialization.");
         }
 
-        private static void WriteExpectationsToConsole(Product current, string expectedName, int expectedId, DateTime expectedDateCreated)
+        private static void WriteExpectationsToConsole(Product current, string expectedName, string expectedSet, DateTime expectedDateCreated)
         {
             Console.WriteLine($"Name: Current='{current.Name}',Expected='{expectedName}'");
-            Console.WriteLine($"Set: Current='{current.Set}',Expected='{expectedId}'");
-            Console.WriteLine($"Id: Current='{current.Created}',Expected='{expectedDateCreated}'");
+            Console.WriteLine($"Set: Current='{current.Set}',Expected='{expectedSet}'");
+            Console.WriteLine($"Created: Current='{current.Created}',Expected='{expectedDateCreated}'");
         }
     }
 }
