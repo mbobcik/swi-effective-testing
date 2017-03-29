@@ -13,10 +13,10 @@ namespace EffectiveTesting
 
         public Product(DateTime created, int id, string name, string set)
         {
-            // Id = id
-            // Created = created;
-            // Name = name;
-            // Set = set;
+            Id = id;
+            Created = created;
+            Name = name;
+            Set = set;
         }
     }
 }
