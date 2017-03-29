@@ -1,16 +1,14 @@
+using System;
+
 namespace EffectiveTesting
 {
     internal static class IdGenerator
     {
-        /// <summary>
-        /// Only for tests
-        /// </summary>
-        internal static int Current { get; set; }
+        private static readonly Random seed = new Random();
 
         public static int NextId()
         {
-            Current++;
-            return Current;
+            return seed.Next(0, 100);
         }
     }
 }

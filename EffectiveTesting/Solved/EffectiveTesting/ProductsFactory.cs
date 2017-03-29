@@ -1,5 +1,3 @@
-using System;
-
 namespace EffectiveTesting
 {
     public class ProductsFactory
@@ -8,7 +6,7 @@ namespace EffectiveTesting
         {
             int newId = IdGenerator.NextId();
             string set = ResolveSet(newId);
-            return new Product(DateTime.UtcNow, newId, name, set);
+            return new Product(newId, name, set);
         }
 
         private static string ResolveSet(int newId)

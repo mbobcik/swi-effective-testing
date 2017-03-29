@@ -10,7 +10,7 @@ namespace EffectiveTesting.Tests
         // TODO: have self descriptive name.
         // TODO: be able understand why it fails.
         // TODO: catch errors related to Name change (Write custom assert method).
-        // TODO: avoid DateTime.UtcNow, to be able reproduce the test with the same data.
+        // TODO: avoid IdGenerator, to be able reproduce the test with the same data.
         // TODO: add missing tests.
 
         // Fix the production code to:    
@@ -21,9 +21,8 @@ namespace EffectiveTesting.Tests
             var factory = new ProductsFactory();
             Product created = factory.Create("ExpectedName");
             Assert.AreEqual(100, created.Id);
-            Assert.AreEqual("B", created.Set);
+            Assert.AreEqual("A", created.Set);
             Assert.AreEqual("ExpectedName", created.Name);
-            Assert.IsTrue(DateTime.UtcNow.AddSeconds(-1) < created.Created);
         }
     }
 }
