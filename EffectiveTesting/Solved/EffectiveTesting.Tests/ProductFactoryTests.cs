@@ -12,7 +12,6 @@ namespace EffectiveTesting.Tests
         // Run the tests to show the test output doesnt show why it failed and what is difference in expected and current values of the assert.
         // TDD - Explain we are now first going to fix the test before we fix the code to be able trust the test.
         // TODO 2: Implement custom Assert method to show all values, even the test fails.The method writes all values expected/current to the console so we know everything from test output.
-        // Fix the product so the test passes.
         // Show how the internal static "IdGenerator" service affects unpredictible and unreproducible data.Explain the same applies when using DateTime.Now.
         // TODO 3: Fix the production, so the test always passes.
         // Run code coverage tool to see which lines covered and which not.
