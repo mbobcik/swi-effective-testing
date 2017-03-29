@@ -1,4 +1,5 @@
 ﻿using System;
+using Moq;
 using NUnit.Framework;
 
 namespace EffectiveTesting.Tests
@@ -24,8 +25,9 @@ namespace EffectiveTesting.Tests
         [Test]
         public void Create_FillsAllProperties()
         {
-            //IdGenerator.Current = 99;
-            var factory = new ProductsFactory();
+            var idGenerator = new Mock<IIdGenerator>();
+            idGenerator.Setup(g => g.NextId()).Returns(100);
+            var factory = new ProductsFactory(idGenerator.Object);
             const string expectedName = "ExpectedName";
             Product created = factory.Create(expectedName);
             AssertProductIsSetTo(created, expectedName, "A", 100);
