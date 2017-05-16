@@ -18,7 +18,7 @@ namespace EffectiveTesting
 
         private static string ResolveSet(int newId)
         {
-            bool isSet = newId % 10 == 0;
+            bool isSet = newId % 2 == 0;
 
             if (isSet)
                 return "A";
