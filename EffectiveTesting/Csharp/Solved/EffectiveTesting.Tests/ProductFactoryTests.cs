@@ -22,7 +22,7 @@ namespace EffectiveTesting.Tests
         // Modify the code to see how the tests are executed, do the same with production code.
         // Show how to find tests covering 'return "A";' statement in Factory class.
         [TestCase(100, "A", "ExpectedName")]
-        [TestCase(99, "B", "ExpectedName")]
+        [TestCase(100, "B", "ExpectedName")]
         [Test]
         public void Create_FillsAllProperties(int expectedId, string expectedSet, string expectedName)
         {
@@ -37,20 +37,21 @@ namespace EffectiveTesting.Tests
 
         private void AssertProductIsSetTo(Product current, string expectedName, string expectedSet, int expectedId)
         {
-            WriteExpectationsToConsole(current, expectedName, expectedSet, expectedId);
+            string message = BuildMessage(current, expectedName, expectedSet, expectedId);
 
             bool allEquals = current.Name == expectedName &&
                 current.Set == expectedSet &&
                 expectedId == current.Id;
 
-            Assert.IsTrue(allEquals, "Product doesnt match expected initialization.");
+            Assert.IsTrue(allEquals, message);
         }
 
-        private static void WriteExpectationsToConsole(Product current, string expectedName, string expectedSet, int expectedId)
+        private static string BuildMessage(Product current, string expectedName, string expectedSet, int expectedId)
         {
-            Console.WriteLine($"Name: Current='{current.Name}',Expected='{expectedName}'");
-            Console.WriteLine($"Set: Current='{current.Set}',Expected='{expectedSet}'");
-            Console.WriteLine($"Id: Current='{current.Id}',Expected='{expectedId}'");
+            return "Product doesnt match expected initialization.\r\n" +
+            $"Name: Current='{current.Name}',Expected='{expectedName}'\r\n" +
+            $"Set: Current='{current.Set}',Expected='{expectedSet}'\r\n" +
+            $"Id: Current='{current.Id}',Expected='{expectedId}'";
         }
     }
 }
