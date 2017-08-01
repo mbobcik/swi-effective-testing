@@ -12,8 +12,8 @@ namespace EffectiveTesting
 
         public Product(int id, string name, string set)
         {
-            // Name = name;
-            //Set = set;
+            Name = name;
+            Set = set;
         }
     }
 }

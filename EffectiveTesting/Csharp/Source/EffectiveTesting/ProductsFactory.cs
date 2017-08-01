@@ -2,9 +2,17 @@ namespace EffectiveTesting
 {
     public class ProductsFactory
     {
+
+        private IIdGenerator idGenerator;
+
+        public ProductsFactory(IIdGenerator idGenerator)
+        {
+            this.idGenerator = idGenerator;
+        }
+
         public Product Create(string name)
         {
-            int newId = IdGenerator.NextId();
+            int newId = idGenerator.NextId();
             string set = ResolveSet(newId);
             return new Product(newId, name, set);
         }
